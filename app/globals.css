@@ -1,26 +1,140 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gold: #C9A96E;
+  --color-dark: #1A1208;
+  --color-cream: #F5F0E8;
+  --color-gold-light: #D9BF91;
+  --color-dark-secondary: #2A1E0E;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #F5F0E8;
+  color: #1A1208;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+::selection {
+  background: #C9A96E;
+  color: #1A1208;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+.nav-link {
+  position: relative;
+  letter-spacing: 0.12em;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #C9A96E;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.btn-gold {
+  background: #C9A96E;
+  color: #1A1208;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: 1px solid #C9A96E;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  background: transparent;
+  color: #C9A96E;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #1A1208;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: 1px solid #1A1208;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background: #1A1208;
+  color: #F5F0E8;
+}
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,18,8,0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+input[type="email"], input[type="text"], textarea {
+  outline: none;
+}
+
+input[type="email"]:focus, input[type="text"]:focus, textarea:focus {
+  border-color: #C9A96E;
 }
