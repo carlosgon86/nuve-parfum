@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function Navigation() {
@@ -38,12 +39,15 @@ export default function Navigation() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <span
-            className="text-xl tracking-widest uppercase"
-            style={{ color: '#1A1208', letterSpacing: '0.25em', fontFamily: 'Georgia, serif' }}
-          >
-            Nuv<span style={{ color: '#C9A96E' }}>é</span> Parfum
-          </span>
+          <Image
+            src="/images/nuve-logo.png"
+            alt="Nuvé Parfum — Find Your Aura"
+            width={120}
+            height={60}
+            className="object-contain"
+            style={{ height: '44px', width: 'auto' }}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
