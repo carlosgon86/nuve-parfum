@@ -117,31 +117,29 @@ export default function AboutPage() {
               className="text-4xl md:text-5xl mb-8"
               style={{ color: '#1A1208', fontFamily: 'Georgia, serif', fontWeight: 400, lineHeight: 1.2 }}
             >
-              Every great fragrance
+              A fusion that exists
               <br />
-              begins with a feeling
+              <em style={{ color: '#C9A96E' }}>nowhere else</em>
             </h2>
             <div
               className="space-y-5 text-base leading-relaxed"
               style={{ color: 'rgba(26,18,8,0.7)', fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
               <p>
-                Nuv&eacute; Parfum was founded on the belief that scent is not decoration — it is identity.
-                The right fragrance does not just make you smell good; it tells the world something true
-                about who you are before you say a single word.
+                The best fragrances in the world already exist. You know the ones. The problem is — so does
+                everyone else.
               </p>
               <p>
-                We spent years studying what separates a fragrance that is noticed from one that is
-                remembered. The answer was always the same: concentration and intention. A fragrance
-                that runs thin by noon is not a signature — it is a suggestion.
+                Nuv&eacute; was built on a different idea. Take two iconic scent worlds. Fuse them with
+                intention and precision. Create something that has never existed before and exists nowhere else.
               </p>
               <p>
-                So we built Nuv&eacute; Parfum differently. Every formula carries an industry leading
-                concentration, engineered to move with your skin chemistry, evolve through your day,
-                and linger long after you have left the room.
+                Every creation in our collection is the result of that process — two worlds colliding to become
+                one new thing. Not an imitation. Not a tribute. A genuine fusion with its own identity, its own
+                character, and its own way of moving through the world.
               </p>
               <p>
-                Six fragrances. Two collections. One obsession.
+                Because the most powerful scent you can wear is one that belongs entirely to you.
               </p>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { products } from '@/lib/products';
 import ProductCard from '@/components/ProductCard';
 import EmailSignup from '@/components/EmailSignup';
@@ -36,14 +37,22 @@ export default function HomePage() {
         className="relative min-h-[92vh] flex items-center justify-center overflow-hidden"
         style={{ backgroundColor: '#1A1208' }}
       >
-        {/* Background texture */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              'radial-gradient(ellipse at 20% 50%, #C9A96E 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #C9A96E 0%, transparent 50%)',
-          }}
-        />
+        {/* Hero background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero-campaign.png"
+            alt="Nuvé Parfum campaign"
+            fill
+            priority
+            className="object-cover"
+            style={{ objectPosition: 'center center' }}
+          />
+          {/* Dark overlay for text readability */}
+          <div
+            className="absolute inset-0"
+            style={{ background: 'rgba(26,18,8,0.62)' }}
+          />
+        </div>
 
         <div
           className="absolute left-0 right-0 top-0 h-px"
@@ -74,7 +83,7 @@ export default function HomePage() {
             className="text-lg md:text-xl mb-12 max-w-xl mx-auto animate-fade-in-up delay-200"
             style={{ color: 'rgba(245,240,232,0.7)', fontFamily: 'Georgia, serif', lineHeight: 1.7, fontWeight: 400 }}
           >
-            Industry leading concentration. Six fragrances built to leave a mark.
+            Two worlds. One new creation. Yours alone.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
@@ -141,24 +150,31 @@ export default function HomePage() {
               className="text-4xl md:text-5xl mb-8"
               style={{ color: '#1A1208', fontFamily: 'Georgia, serif', lineHeight: 1.2, fontWeight: 400 }}
             >
-              Scent is the only sense
+              Two worlds.
               <br />
-              <em style={{ color: '#C9A96E' }}>that never lies</em>
+              <em style={{ color: '#C9A96E' }}>One new creation.</em>
             </h2>
             <p
               className="text-base mb-6 leading-relaxed"
               style={{ color: 'rgba(26,18,8,0.7)', fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
-              At Nuv&eacute; Parfum, we built every fragrance around a single belief: that the right scent
-              does not just smell beautiful — it becomes part of who you are. Your mood, your memory, your
-              mark on every room you enter.
+              The world&rsquo;s most iconic scents already exist. You know the ones. The icons. The legends.
+              The fragrances that defined an era. The only problem — so does everyone else. Every room.
+              Every occasion. The same scent, worn by a hundred different people.
+            </p>
+            <p
+              className="text-base mb-6 leading-relaxed"
+              style={{ color: 'rgba(26,18,8,0.7)', fontFamily: 'Arial, Helvetica, sans-serif' }}
+            >
+              Nuv&eacute; was built on a different idea. We take two iconic scent worlds — each with its own
+              history, character, and presence — and fuse them with intention and precision into a single new
+              creation that has never existed before. A fusion that exists nowhere else.
             </p>
             <p
               className="text-base mb-10 leading-relaxed"
               style={{ color: 'rgba(26,18,8,0.7)', fontFamily: 'Arial, Helvetica, sans-serif' }}
             >
-              Every bottle in our collection carries an industry leading concentration, crafted so that your
-              fragrance moves with you from the first hour to the last.
+              Not inspired by. Not a tribute to. Something entirely new — and entirely yours.
             </p>
             <Link href="/about" className="btn-outline">
               Read Our Story
@@ -178,26 +194,40 @@ export default function HomePage() {
                 }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
+                <div className="text-center px-10">
+                  <div
+                    className="w-px mx-auto mb-8"
+                    style={{ height: '60px', background: 'linear-gradient(to bottom, transparent, #C9A96E)' }}
+                  />
                   <p
-                    className="text-8xl"
-                    style={{ color: '#C9A96E', fontFamily: 'Georgia, serif', opacity: 0.12, fontWeight: 400 }}
+                    className="text-lg tracking-widest uppercase mb-4"
+                    style={{ color: 'rgba(201,169,110,0.6)', fontFamily: 'Arial, Helvetica, sans-serif', letterSpacing: '0.3em', fontSize: '0.7rem' }}
                   >
-                    N
+                    The Nuvé Method
+                  </p>
+                  <p
+                    className="text-3xl mb-6"
+                    style={{ color: '#C9A96E', fontFamily: 'Georgia, serif', fontWeight: 400, lineHeight: 1.4 }}
+                  >
+                    Two worlds,
+                    <br />
+                    <em>one new creation</em>
                   </p>
                   <div
-                    className="w-px mx-auto mt-4"
-                    style={{ height: '120px', background: 'linear-gradient(to bottom, #C9A96E, transparent)' }}
+                    className="w-8 h-px mx-auto my-6"
+                    style={{ backgroundColor: 'rgba(201,169,110,0.4)' }}
+                  />
+                  <p
+                    className="text-sm italic leading-relaxed"
+                    style={{ color: 'rgba(201,169,110,0.7)', fontFamily: 'Georgia, serif' }}
+                  >
+                    &ldquo;A fusion that exists nowhere else.&rdquo;
+                  </p>
+                  <div
+                    className="w-px mx-auto mt-8"
+                    style={{ height: '60px', background: 'linear-gradient(to bottom, #C9A96E, transparent)' }}
                   />
                 </div>
-              </div>
-              <div className="absolute bottom-10 left-10 right-10">
-                <p
-                  className="text-sm italic leading-relaxed"
-                  style={{ color: 'rgba(201,169,110,0.8)', fontFamily: 'Georgia, serif' }}
-                >
-                  &ldquo;From the Latin for cloud — because a great fragrance is felt before it is seen.&rdquo;
-                </p>
               </div>
             </div>
             <div

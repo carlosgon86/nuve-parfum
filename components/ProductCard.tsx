@@ -1,17 +1,32 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Product } from '@/lib/products';
 
 export default function ProductCard({ product }: { product: Product }) {
+  const bottleImage =
+    product.collection === 'pour-elle'
+      ? '/images/rose-noir-bottle.png'
+      : '/images/peak-hour-bottle.png';
+
   return (
     <Link href={`/products/${product.slug}`} className="group block">
       <div className="relative overflow-hidden" style={{ backgroundColor: '#1A1208', aspectRatio: '3/4' }}>
-        {/* Background gradient */}
-        <div
-          className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
-          style={{
-            background: `radial-gradient(ellipse at 40% 60%, ${product.accentColor}22 0%, transparent 65%), radial-gradient(ellipse at 70% 30%, ${product.accentColor}11 0%, transparent 50%)`,
-          }}
-        />
+        {/* Bottle image */}
+        <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+          <Image
+            src={bottleImage}
+            alt={product.name}
+            fill
+            className="object-cover object-center"
+          />
+          {/* Subtle dark overlay so text remains readable */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `radial-gradient(ellipse at 40% 60%, ${product.accentColor}18 0%, transparent 65%), linear-gradient(to bottom, rgba(26,18,8,0.3) 0%, rgba(26,18,8,0.15) 50%, rgba(26,18,8,0.6) 100%)`,
+            }}
+          />
+        </div>
 
         {/* Collection label */}
         <div className="absolute top-6 left-6">
@@ -23,6 +38,7 @@ export default function ProductCard({ product }: { product: Product }) {
               borderColor: 'rgba(201,169,110,0.3)',
               letterSpacing: '0.15em',
               fontSize: '0.65rem',
+              backgroundColor: 'rgba(26,18,8,0.5)',
             }}
           >
             {product.collectionLabel}
@@ -33,27 +49,10 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="absolute top-6 right-6">
           <span
             className="text-xs"
-            style={{ fontFamily: 'Arial, Helvetica, sans-serif', color: 'rgba(201,169,110,0.5)', fontSize: '0.65rem' }}
+            style={{ fontFamily: 'Arial, Helvetica, sans-serif', color: 'rgba(201,169,110,0.8)', fontSize: '0.65rem', backgroundColor: 'rgba(26,18,8,0.4)', padding: '2px 6px' }}
           >
             {product.category}
           </span>
-        </div>
-
-        {/* Center - decorative N */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p
-            className="transition-all duration-500 group-hover:opacity-20 group-hover:scale-110"
-            style={{
-              color: product.accentColor,
-              fontFamily: 'Georgia, serif',
-              fontSize: '10rem',
-              fontWeight: 400,
-              opacity: 0.07,
-              lineHeight: 1,
-            }}
-          >
-            N
-          </p>
         </div>
 
         {/* Bottom content */}
